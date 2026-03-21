@@ -1,0 +1,24 @@
+{
+  "name": "@heuric/web-sdk",
+  "version": "1.0.0",
+  "description": "Easy setup SDK for tracking user interactions",
+  "type": "module",
+  "main": "dist/heuric.esm.js",
+  "module": "dist/heuric.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w"
+  },
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^12.1.2",
+    "@rollup/plugin-terser": "^0.4.4",
+    "rollup": "^4.34.8",
+    "tslib": "^2.8.1",
+    "typescript": "^5.7.3"
+  },
+  "license": "MIT"
+}
