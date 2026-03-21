@@ -27,7 +27,7 @@ export function initHeuric(config: HeuricConfig): void {
   if (initialised) return;
   initialised = true;
 
-  const { endpoint, projectId, flushInterval, flushThreshold } = config;
+  const { endpoint, projectId, flushInterval, flushThreshold, normalizeUrl } = config;
 
   if (!endpoint || !projectId) {
     console.warn('[Heuric] endpoint and projectId are required.');
@@ -40,5 +40,5 @@ export function initHeuric(config: HeuricConfig): void {
   configureQueue(endpoint, { flushInterval, flushThreshold });
 
   // Attach global DOM listeners
-  startTracking(projectId, sessionId);
+  startTracking(projectId, sessionId, normalizeUrl);
 }

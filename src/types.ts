@@ -8,6 +8,8 @@ export interface HeuricConfig {
   flushInterval?: number;
   /** Max events before an automatic flush (default: 20). */
   flushThreshold?: number;
+  /** If true, strips query params and hashes from captured URLs (default: false). */
+  normalizeUrl?: boolean;
 }
 
 /** Viewport dimensions at the moment of the event. */

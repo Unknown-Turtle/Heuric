@@ -9,6 +9,7 @@ import { push } from './eventQueue';
 
 let projectId = '';
 let sessionId = '';
+let shouldNormalizeUrl = false;
 
 const SCROLL_THROTTLE_MS = 300;
 
@@ -17,9 +18,10 @@ const SCROLL_THROTTLE_MS = 300;
 /**
  * Attach global listeners. Must be called once from `initHeuric`.
  */
-export function startTracking(pid: string, sid: string): void {
+export function startTracking(pid: string, sid: string, normalizeUrl = false): void {
   projectId = pid;
   sessionId = sid;
+  shouldNormalizeUrl = normalizeUrl;
 
   document.addEventListener('click', handleClick, { capture: true });
   window.addEventListener('scroll', handleScroll, { passive: true });
@@ -43,7 +45,7 @@ function handleClick(e: MouseEvent): void {
     session_id: sessionId,
     event_type: 'click',
     timestamp: Date.now(),
-    page_url: getCurrentUrl(),
+    page_url: getCurrentUrl(shouldNormalizeUrl),
     viewport: { width: vw, height: vh },
     element: parseElement(rawTarget), // parseElement runs resolveTarget internally too
     position: {
@@ -80,7 +82,7 @@ function handleScroll(): void {
       session_id: sessionId,
       event_type: 'scroll',
       timestamp: Date.now(),
-      page_url: getCurrentUrl(),
+      page_url: getCurrentUrl(shouldNormalizeUrl),
       viewport: { width: vw, height: vh },
       element: null,
       position: {

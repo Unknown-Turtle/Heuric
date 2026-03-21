@@ -53,7 +53,12 @@ export function scrubPII(str: string): string {
 
 /**
  * Return the current page URL (captured fresh for SPA compatibility).
+ * If `normalize` is true, strips query params and hashes.
  */
-export function getCurrentUrl(): string {
+export function getCurrentUrl(normalize = false): string {
+  if (normalize) {
+    const u = new URL(window.location.href);
+    return u.origin + u.pathname;
+  }
   return window.location.href;
 }
