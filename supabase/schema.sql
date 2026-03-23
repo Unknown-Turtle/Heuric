@@ -13,7 +13,7 @@ CREATE TABLE events (
     scroll_data JSONB
 );
 
--- Create indexes to make your dashboard queries lightning fast later
+-- Create indexes to make your dashboard queries faster
 CREATE INDEX idx_events_project_id ON events(project_id);
 CREATE INDEX idx_events_session_id ON events(session_id);
 CREATE INDEX idx_events_event_type ON events(event_type);
