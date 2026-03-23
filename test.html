@@ -23,7 +23,8 @@
       background: #f2f0ed;
     }
 
-    h1, h2 {
+    h1,
+    h2 {
       font-weight: 400;
     }
 
@@ -123,7 +124,7 @@
     <div id="pii-block">Contact user@example.com or call 1234567890. Balance: £5,432.10</div>
   </div>
 
-  <p style="margin-top:2rem;color:#71717a">⬇ Scroll down — scroll events fire after a 300 ms pause.</p>
+  <p style="margin-top:2rem;color:#71717a"> Scroll down — scroll events fire after a 300 ms pause.</p>
 
   <div class="status" id="status">SDK loading…</div>
 
@@ -133,8 +134,8 @@
 
     // Use a fake endpoint — check the Network tab for requests
     initHeuric({
-      endpoint: '/api/events',
-      projectId: 'test_project_001',
+      endpoint: 'YOUR_ENDPOINT',
+      projectId: 'YOUR_PROJECT_ID',
       flushInterval: 5000,
     });
 

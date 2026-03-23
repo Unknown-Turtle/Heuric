@@ -46,7 +46,7 @@ export function flush(): void {
   if (queue.length === 0) return;
   const batch = queue;
   queue = [];
-  sendBatch(endpoint, batch);
+  sendBeaconBatch(endpoint, batch);
 }
 
 // ── Internal helpers ─────────────────────────────────────────────────────────

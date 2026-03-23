@@ -38,7 +38,7 @@ export function sendBeaconBatch(
 
   try {
     const blob = new Blob([JSON.stringify({ events })], {
-      type: 'application/json',
+      type: 'text/plain',
     });
     navigator.sendBeacon(endpoint, blob);
   } catch {
