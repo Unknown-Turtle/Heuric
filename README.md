@@ -4,11 +4,17 @@ A lightweight, drop-in UX analytics SDK that automatically captures user interac
 
 ## Installation
 
-I am currently working on publishing this to NPM. For now, you will need to download the repository and compile the SDK locally:
+Install the package via npm:
 
-1. Download the repo.
-2. Run `npm install` followed by `npm run build`.
-3. Copy the resulting `dist/heuric.esm.js` file directly into your own project's folder (e.g. `src/lib/heuric.esm.js`).
+```bash
+npm install @heuric/web-sdk
+```
+
+### Alternative Local Installation
+
+1. Download the repository.
+2. Run `npm install` and then `npm run build`.
+3. Copy the resulting `dist/heuric.esm.js` file into your own project (e.g., `src/lib/heuric.esm.js`).
 
 ## Usage and Setup
 
@@ -21,7 +27,7 @@ Create a client component (`Tracker.tsx`):
 "use client";
 
 import { useEffect } from "react";
-import { initHeuric } from "@/lib/heuric.esm.js";
+import { initHeuric } from "@heuric/web-sdk"; // or "@/lib/heuric.esm.js" if using local installation
 
 export default function HeuricTracker() {
   useEffect(() => {
